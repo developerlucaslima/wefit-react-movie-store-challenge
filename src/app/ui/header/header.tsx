@@ -1,5 +1,5 @@
 import { ROUTES } from '@/routes/routes'
-import cartIcon from '@/shared/assets/icons/cart-icon.svg'
+import basketIcon from '@/shared/assets/icons/basket-icon.svg'
 
 import {
   Brand,
@@ -35,7 +35,7 @@ export const Header = ({ cartCount }: HeaderProps) => {
           </CartInfo>
 
           <CartIconWrapper>
-            <CartIcon src={cartIcon} alt="" aria-hidden="true" />
+            <CartIcon src={basketIcon} alt="" aria-hidden="true" />
           </CartIconWrapper>
         </CartLink>
       </HeaderInner>

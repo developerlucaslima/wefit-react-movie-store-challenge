@@ -33,6 +33,7 @@ declare module 'styled-components' {
         xl: string
       }
       fontWeight: {
+        regular: number
         semibold: number
         bold: number
       }

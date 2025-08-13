@@ -32,6 +32,7 @@ export const theme: DefaultTheme = {
       xl: '24px',
     },
     fontWeight: {
+      regular: 400,
       semibold: 600,
       bold: 700,
     },

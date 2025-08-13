@@ -22,6 +22,8 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true,
     "noUncheckedSideEffectImports": true,
+
+    /* Alias */
     "baseUrl": ".",
     "paths": {
       "@/*": [
@@ -29,5 +31,5 @@
       ]
     }
   },
-  "include": ["src"]
+  "include": ["src", "src/routes/routes.ts"]
 }

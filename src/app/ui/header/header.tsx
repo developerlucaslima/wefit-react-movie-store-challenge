@@ -15,7 +15,7 @@ import {
 } from './header-styles'
 import type { HeaderProps } from './header-types'
 
-export const HeaderComponent = ({ cartCount }: HeaderProps) => {
+export const Header = ({ cartCount }: HeaderProps) => {
   return (
     <HeaderBar>
       <HeaderInner>

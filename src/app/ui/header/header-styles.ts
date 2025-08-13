@@ -1,6 +1,8 @@
 import { Link } from 'react-router-dom'
 import styled from 'styled-components'
 
+const ICON_SIZE = '24px'
+
 export const HeaderBar = styled.header`
   width: 100%;
   background: ${({ theme }) => theme.colors.background};
@@ -78,7 +80,7 @@ export const CartIconWrapper = styled.span`
 `
 
 export const CartIcon = styled.img`
-  width: 24px;
-  height: 24px;
+  width: ${ICON_SIZE};
+  height: ${ICON_SIZE};
   display: block;
 `

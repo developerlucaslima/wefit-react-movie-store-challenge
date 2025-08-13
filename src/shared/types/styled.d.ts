@@ -21,6 +21,7 @@ declare module 'styled-components' {
     }
     breakpoints: {
       sm: string
+      md: string
       xl: string
     }
     typography: {

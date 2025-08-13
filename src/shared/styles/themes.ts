@@ -20,6 +20,7 @@ export const theme: DefaultTheme = {
   },
   breakpoints: {
     sm: '360px',
+    md: '768px',
     xl: '1440px',
   },
   typography: {

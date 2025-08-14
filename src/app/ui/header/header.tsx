@@ -1,5 +1,9 @@
 import { ROUTES } from '@/routes/routes'
 import basketIcon from '@/shared/assets/icons/basket-icon.svg'
+import {
+  selectTotalItems,
+  useCart,
+} from '@/shared/stores/cart-store/cart-store'
 
 import {
   Brand,
@@ -13,9 +17,11 @@ import {
   HeaderBar,
   HeaderInner,
 } from './header-styles'
-import type { HeaderProps } from './header-types'
 
-export const Header = ({ cartCount }: HeaderProps) => {
+export const Header = () => {
+  const cartCount = useCart(selectTotalItems)
+  const itemWord = cartCount === 1 ? 'item' : 'itens'
+
   return (
     <HeaderBar>
       <HeaderInner>
@@ -25,12 +31,12 @@ export const Header = ({ cartCount }: HeaderProps) => {
 
         <CartLink
           to={ROUTES.cart}
-          aria-label={`Ir para o carrinho, ${cartCount} ${cartCount === 1 ? 'item' : 'itens'}`}
+          aria-label={`Ir para o carrinho, ${cartCount} ${itemWord}`}
         >
           <CartInfo>
             <CartLabel>Meu Carrinho</CartLabel>
             <CartCount aria-live="polite">
-              {cartCount} {cartCount === 1 ? 'item' : 'itens'}
+              {cartCount} {itemWord}
             </CartCount>
           </CartInfo>
 

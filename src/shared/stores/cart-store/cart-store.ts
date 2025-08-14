@@ -12,21 +12,18 @@ export const useCart = create<CartState>()(
         set((state) => {
           const existing = state.items[item.id]
           const newQty = (existing?.quantity ?? 0) + quantity
-          return {
-            items: { ...state.items, [item.id]: { ...item, quantity: newQty } },
-          }
+          const newItems = { ...state.items }
+          newItems[item.id] = { ...item, quantity: newQty }
+          return { items: newItems }
         }),
 
       incrementItem: (id, amount = 1) =>
         set((state) => {
           const existing = state.items[id]
           if (!existing) return state
-          return {
-            items: {
-              ...state.items,
-              [id]: { ...existing, quantity: existing.quantity + amount },
-            },
-          }
+          const newItems = { ...state.items }
+          newItems[id] = { ...existing, quantity: existing.quantity + amount }
+          return { items: newItems }
         }),
 
       decrementItem: (id, amount = 1) =>
@@ -35,12 +32,13 @@ export const useCart = create<CartState>()(
           if (!existing) return state
           const newQty = existing.quantity - amount
           if (newQty <= 0) {
-            const { [id]: _, ...rest } = state.items
-            return { items: rest }
+            const newItems = { ...state.items }
+            delete newItems[id]
+            return { items: newItems }
           }
-          return {
-            items: { ...state.items, [id]: { ...existing, quantity: newQty } },
-          }
+          const newItems = { ...state.items }
+          newItems[id] = { ...existing, quantity: newQty }
+          return { items: newItems }
         }),
 
       updateItemQuantity: (id, quantity) =>
@@ -48,29 +46,38 @@ export const useCart = create<CartState>()(
           const existing = state.items[id]
           if (!existing) return state
           if (quantity <= 0) {
-            const { [id]: _, ...rest } = state.items
-            return { items: rest }
+            const newItems = { ...state.items }
+            delete newItems[id]
+            return { items: newItems }
           }
-          return { items: { ...state.items, [id]: { ...existing, quantity } } }
+          const newItems = { ...state.items }
+          newItems[id] = { ...existing, quantity }
+          return { items: newItems }
         }),
 
       removeItem: (id) =>
         set((state) => {
-          const { [id]: _, ...rest } = state.items
-          return { items: rest }
+          const newItems = { ...state.items }
+          delete newItems[id]
+          return { items: newItems }
         }),
 
       clearCart: () => set({ items: {} }),
     }),
-    { name: 'wefit-cart' },
+    {
+      name: 'wefit-cart',
+      partialize: (s) => ({ items: s.items }),
+    },
   ),
 )
 
-export const selectTotalItems = (s: CartState) =>
+export const selectCartTotalItems = (s: CartState) =>
   Object.values(s.items).reduce((sum, it) => sum + it.quantity, 0)
 
-export const selectTotalPrice = (s: CartState) =>
+export const selectCartTotalPrice = (s: CartState) =>
   Object.values(s.items).reduce((sum, it) => sum + it.quantity * it.price, 0)
+
+export const selectAllItems = (s: CartState) => Object.values(s.items)
 
 export const selectItemQuantity = (id: number) => (s: CartState) =>
   s.items[id]?.quantity ?? 0

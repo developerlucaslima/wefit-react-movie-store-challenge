@@ -11,6 +11,7 @@ export const theme: DefaultTheme = {
     successBackground: '#039B00',
     successForeground: '#FFFFFF',
     mutedForeground: '#999999',
+    strongForeground: '#333333',
     border: '#D9D9D9',
     ring: '#D9D9D9',
   },

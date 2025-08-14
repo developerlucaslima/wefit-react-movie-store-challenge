@@ -12,6 +12,7 @@ declare module 'styled-components' {
       successBackground: string
       successForeground: string
       mutedForeground: string
+      strongForeground: string
       border: string
       ring: string
     }

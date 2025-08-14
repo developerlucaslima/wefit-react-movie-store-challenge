@@ -14,9 +14,4 @@ export type CartState = {
   updateItemQuantity: (id: number, quantity: number) => void
   removeItem: (id: number) => void
   clearCart: () => void
-  getTotalItems: () => number
-  getTotalPrice: () => number
-  getItemQuantity: (id: number) => number
-  getItemSubtotal: (id: number) => number
-  getItemsArray: () => CartItem[]
 }

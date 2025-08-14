@@ -1,7 +1,7 @@
 import { ROUTES } from '@/routes/routes'
 import basketIcon from '@/shared/assets/icons/basket-icon.svg'
 import {
-  selectTotalItems,
+  selectCartTotalItems,
   useCart,
 } from '@/shared/stores/cart-store/cart-store'
 
@@ -19,7 +19,7 @@ import {
 } from './header-styles'
 
 export const Header = () => {
-  const cartCount = useCart(selectTotalItems)
+  const cartCount = useCart(selectCartTotalItems)
   const itemWord = cartCount === 1 ? 'item' : 'itens'
 
   return (

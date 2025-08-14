@@ -4,7 +4,10 @@ import type { ButtonVariant } from './button-types'
 
 const ICON_SIZE = '13.6px'
 
-export const StyledButton = styled.button<{ $variant: ButtonVariant; $fullWidth: boolean }>`
+export const StyledButton = styled.button<{
+  $variant: ButtonVariant
+  $fullWidth: boolean
+}>`
   appearance: none;
   border: 0;
   cursor: pointer;
@@ -33,9 +36,16 @@ export const StyledButton = styled.button<{ $variant: ButtonVariant; $fullWidth:
     `}
 
   transition: filter 0.15s ease, transform 0.02s ease;
-  &:hover:not(:disabled) { filter: brightness(1.1); }
-  &:active:not(:disabled) { transform: translateY(0.5px); }
-  &:disabled { opacity: 0.6; cursor: not-allowed; }
+  &:hover:not(:disabled) {
+    filter: brightness(1.1);
+  }
+  &:active:not(:disabled) {
+    transform: translateY(0.5px);
+  }
+  &:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+  }
 
   &:focus-visible {
     outline: 2px solid ${({ theme }) => theme.colors.ring};

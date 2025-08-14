@@ -7,7 +7,8 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean
 }
 
-export interface ButtonIconCountProps extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'width' | 'height'> {
+export interface ButtonIconCountProps
+  extends Omit<ImgHTMLAttributes<HTMLImageElement>, 'width' | 'height'> {
   count: number
   'aria-hidden'?: true
 }

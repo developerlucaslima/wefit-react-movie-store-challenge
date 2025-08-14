@@ -1,44 +1,41 @@
 import { forwardRef } from 'react'
 
-import { ButtonIcon, CountText,IconCountWrapper, StyledButton } from './button-styles'
-import type { ButtonIconCountProps,ButtonProps } from './button-types'
+import {
+  ButtonIcon,
+  CountText,
+  IconCountWrapper,
+  StyledButton,
+} from './button-styles'
+import type { ButtonIconCountProps, ButtonProps } from './button-types'
 
-const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+const ButtonRoot = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { 
-      variant = 'primary', 
-      fullWidth = true, 
-      type = 'button', 
-      ...rest 
-    }
-    , ref) => (
-    <StyledButton 
-      ref={ref} 
-      type={type} 
-      $variant={variant} 
-      $fullWidth={fullWidth} 
-      {...rest} 
+    { variant = 'primary', fullWidth = true, type = 'button', ...rest },
+    ref,
+  ) => (
+    <StyledButton
+      ref={ref}
+      type={type}
+      $variant={variant}
+      $fullWidth={fullWidth}
+      {...rest}
     />
-  )
+  ),
 )
+ButtonRoot.displayName = 'Button.Root'
 
-const ButtonIconCount = ({ 
-    count, 
-    ...img 
-  }: ButtonIconCountProps) => {
+const ButtonIconCount = ({ count, alt = '', ...img }: ButtonIconCountProps) => {
   return (
-    <IconCountWrapper>
-      <ButtonIcon 
-        alt=""
-        aria-hidden="true"
-        {...img} 
+    <IconCountWrapper role="status" aria-live="polite" aria-atomic="true">
+      <ButtonIcon
+        alt={alt}
+        aria-hidden={alt === '' ? true : undefined}
+        {...img}
       />
-      
-      <CountText aria-live="polite" aria-atomic="true">
-        {count}
-      </CountText>
+      <CountText>{count}</CountText>
     </IconCountWrapper>
   )
 }
+ButtonIconCount.displayName = 'Button.IconCount'
 
-export { Button, ButtonIconCount }
+export { ButtonIconCount, ButtonRoot }

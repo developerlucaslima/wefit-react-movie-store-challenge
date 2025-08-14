@@ -12,7 +12,7 @@ import {
 } from '../../components/movie-card/movie-card'
 import { MoviesListWrapper } from './home-page-styles'
 
-export default function HomePage() {
+export const HomePage = () => {
   const { data: movies = [], isLoading, isError } = useMovies()
   const addItem = useCart((s) => s.addItem)
   const items = useCart((s) => s.items)

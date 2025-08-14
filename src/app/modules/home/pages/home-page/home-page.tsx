@@ -1,4 +1,4 @@
-import { Button, ButtonIconCount } from '@/app/ui/button/button'
+import { ButtonIconCount, ButtonRoot } from '@/app/ui/button/button'
 import { useMovies } from '@/shared/api/get-all-movies/use-movies'
 import cartIcon from '@/shared/assets/icons/cart-icon.svg'
 import { useCart } from '@/shared/stores/cart-store/cart-store'
@@ -22,32 +22,35 @@ export default function HomePage() {
 
   return (
     <MoviesListWrapper aria-label="Lista de filmes">
-      {movies.map((m) => {
-        const qty = items[m.id]?.quantity ?? 0
-        const isAdded = qty > 0
-        const titleId = `movie-${m.id}-title`
+      {movies.map((movie) => {
+        const quantity = items[movie.id]?.quantity ?? 0
+        const isAdded = quantity > 0
+        const titleId = `movie-${movie.id}-title`
 
         return (
-          <MovieCardRoot key={m.id} labelledBy={titleId}>
-            <MovieCardImage src={m.image} alt={`Capa do filme ${m.title}`} />
-            <MovieCardTitle id={titleId}>{m.title}</MovieCardTitle>
-            <MovieCardPrice amount={m.price} />
+          <MovieCardRoot key={movie.id} labelledBy={titleId}>
+            <MovieCardImage
+              src={movie.image}
+              alt={`Capa do filme ${movie.title}`}
+            />
+            <MovieCardTitle id={titleId}>{movie.title}</MovieCardTitle>
+            <MovieCardPrice amount={movie.price} />
 
             <MovieCardActions>
-              <Button
+              <ButtonRoot
                 variant={isAdded ? 'success' : 'primary'}
                 onClick={() =>
                   addItem({
-                    id: m.id,
-                    title: m.title,
-                    image: m.image,
-                    price: m.price,
+                    id: movie.id,
+                    title: movie.title,
+                    image: movie.image,
+                    price: movie.price,
                   })
                 }
               >
-                <ButtonIconCount src={cartIcon} count={qty} />
+                <ButtonIconCount src={cartIcon} count={quantity} />
                 Adicionar ao carrinho
-              </Button>
+              </ButtonRoot>
             </MovieCardActions>
           </MovieCardRoot>
         )

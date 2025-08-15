@@ -35,10 +35,6 @@ export const EmptyCartCardImage = styled.img`
   height: auto;
   display: block;
   pointer-events: none;
-
-  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    width: min(100%, 294.96px);
-  }
 `
 
 export const EmptyCartCardSeparator = styled.hr`

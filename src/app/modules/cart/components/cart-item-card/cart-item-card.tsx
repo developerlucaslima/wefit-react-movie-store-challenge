@@ -6,12 +6,13 @@ import { formatBRL } from '@/shared/utils/format/currency'
 import {
   Content,
   Image,
-  RemoveButton,
+  DesktopRemoveButton,
   Root,
   Row,
   Subtotal,
   Title,
   UnitPrice,
+  MobileRemoveButton,
 } from './cart-item-card-styles'
 import type {
   CartItemCardRootProps,
@@ -67,20 +68,30 @@ function CartItemSubtotal({ amount, ...rest }: CartItemSubtotalProps) {
 }
 CartItemSubtotal.displayName = 'CartItemCard.Subtotal'
 
-function CartItemRemoveButton({ ...btn }: CartItemRemoveButtonProps) {
+function MobileItemRemoveButton({ ...btn }: CartItemRemoveButtonProps) {
   return (
-    <RemoveButton type="button" aria-label="Remover item do carrinho" {...btn}>
+    <MobileRemoveButton type="button" aria-label="Remover item do carrinho" {...btn}>
       <img src={trashIcon} alt="" aria-hidden="true" />
-    </RemoveButton>
+    </MobileRemoveButton>
   )
 }
-CartItemRemoveButton.displayName = 'CartItemCard.RemoveButton'
+MobileItemRemoveButton.displayName = 'CartItemCard.RemoveButton'
+
+function DesktopCartItemRemoveButton({ ...btn }: CartItemRemoveButtonProps) {
+  return (
+    <DesktopRemoveButton type="button" aria-label="Remover item do carrinho" {...btn}>
+      <img src={trashIcon} alt="" aria-hidden="true" />
+    </DesktopRemoveButton>
+  )
+}
+DesktopCartItemRemoveButton.displayName = 'CartItemCard.RemoveButton'
 
 export {
   CartItemCardRoot,
   CartItemContent,
   CartItemImage,
-  CartItemRemoveButton,
+  MobileItemRemoveButton,
+  DesktopCartItemRemoveButton,
   CartItemRow,
   CartItemSubtotal,
   CartItemTitle,

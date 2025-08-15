@@ -1,3 +1,7 @@
+import { useCheckoutSuccess } from '../../hooks/use-checkout-success'
+import { CheckoutSuccessView } from './checkout-success-view'
+
 export const CheckoutPage = () => {
-  return <h1>Checkout page</h1>
+  const { handleOnBack } = useCheckoutSuccess()
+  return <CheckoutSuccessView onBack={handleOnBack} />
 }

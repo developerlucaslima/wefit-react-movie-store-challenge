@@ -1,4 +1,5 @@
 import { ButtonIconCount, ButtonRoot } from '@/app/ui/button/button'
+import { SpinnerRoot } from '@/app/ui/spinner/spinner'
 import cartIcon from '@/shared/assets/icons/cart-icon.svg'
 
 import {
@@ -20,7 +21,7 @@ type Props = {
 }
 
 export function HomeView({ movies, isLoading, getQuantity, onAdd }: Props) {
-  if (isLoading) return <h1>Carregando…</h1>
+  if (isLoading) return <SpinnerRoot />
 
   return (
     <MoviesListWrapper aria-label="Lista de filmes">

@@ -13,7 +13,7 @@ export const theme: DefaultTheme = {
     mutedForeground: '#999999',
     strongForeground: '#333333',
     border: '#D9D9D9',
-    ring: '#D9D9D9',
+    ring: '#009EDD',
   },
   border: {
     'rounded-full': '9999px',

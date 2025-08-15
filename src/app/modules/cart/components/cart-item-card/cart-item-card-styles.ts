@@ -6,11 +6,14 @@ const ICON_HEIGHT = '18px'
 export const Root = styled.article`
   display: flex;
   gap: 16px;
-  align-items: center;
 
   background: ${({ theme }) => theme.colors.cardBackground};
   color: ${({ theme }) => theme.colors.cardForeground};
   width: 100%;
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    align-items: center;
+  }
 `
 
 export const Image = styled.img`
@@ -29,18 +32,16 @@ export const Content = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   min-width: 0;
   gap: 16px;
-  margin-top: 3px;
-  margin-bottom: 3px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     flex-direction: row;
-    align-items: center;
     height: 100%;
     gap: 16px;
     margin: 0;
+    margin-top: 3px;
+    margin-bottom: 3px;
   }
 `
 

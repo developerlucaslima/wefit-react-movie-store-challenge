@@ -10,7 +10,7 @@ export const EmptyCartCardRoot = styled.section`
   flex-direction: column;
   align-items: center;
   gap: 24px;
-  margin: 0 16px 40px;
+  margin: 0 16px 143.64px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     padding-bottom: 102px;

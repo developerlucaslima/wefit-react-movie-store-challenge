@@ -4,8 +4,8 @@ interface ArrowKeysHandlerOptions {
   disabled?: boolean
   onIncrement?: () => void
   onDecrement?: () => void
-  incDisabled?: boolean
-  decDisabled?: boolean
+  incrementDisabled?: boolean
+  decrementDisabled?: boolean
 }
 
 export function handleArrowKeys<T = HTMLElement>(
@@ -14,8 +14,8 @@ export function handleArrowKeys<T = HTMLElement>(
     disabled,
     onIncrement,
     onDecrement,
-    incDisabled,
-    decDisabled,
+    incrementDisabled: incDisabled,
+    decrementDisabled: decDisabled,
   }: ArrowKeysHandlerOptions,
 ) {
   if (disabled) return

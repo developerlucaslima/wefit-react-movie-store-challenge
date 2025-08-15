@@ -24,10 +24,10 @@ export const CartPage = () => {
   return (
     <CartListRoot>
       <CartListHeader>
-        <CartListHeaderCell className="product">Produto</CartListHeaderCell>
+        <CartListHeaderCell className="product">produto</CartListHeaderCell>
         <CartListHeaderCell className="qtySub">
-          <span>QTD</span>
-          <span>SUBTOTAL</span>
+          <span>qtd</span>
+          <span>subtotal</span>
         </CartListHeaderCell>
         <CartListHeaderCell className="actions" />
       </CartListHeader>

@@ -39,6 +39,7 @@ export const Header = styled.div`
 `
 
 export const Th = styled.div`
+  text-transform: uppercase;
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     &.product {
       flex: 0 0 calc(${IMG_W} + ${GAP} + ${TITLE_W});

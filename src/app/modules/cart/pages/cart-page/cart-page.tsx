@@ -2,12 +2,12 @@ import { useCartPage } from '../../hooks/use-cart-page'
 import { CartView } from './cart-view'
 
 export const CartPage = () => {
-  const { items, total, hasItems, handleCheckout } = useCartPage()
+  const { items, total, emptyCart, handleCheckout } = useCartPage()
   return (
     <CartView
       items={items}
       total={total}
-      hasItems={hasItems}
+      emptyCart={emptyCart}
       onCheckout={handleCheckout}
     />
   )

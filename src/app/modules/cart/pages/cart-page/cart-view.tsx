@@ -16,11 +16,11 @@ import { CartListItem } from '../../components/cart-list/cart-list-row'
 type Props = {
   items: CartItem[]
   total: number
-  hasItems: boolean
+  emptyCart: boolean
   onCheckout: () => void
 }
 
-export function CartView({ items, total, hasItems, onCheckout }: Props) {
+export function CartView({ items, total, emptyCart, onCheckout }: Props) {
   return (
     <CartListRoot>
       <CartListHeader>
@@ -46,7 +46,7 @@ export function CartView({ items, total, hasItems, onCheckout }: Props) {
 
       <CartListFooter>
         <CartListFooterActions>
-          <ButtonRoot onClick={onCheckout} disabled={!hasItems}>
+          <ButtonRoot onClick={onCheckout} disabled={emptyCart}>
             finalizar pedido
           </ButtonRoot>
         </CartListFooterActions>

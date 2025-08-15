@@ -1,4 +1,3 @@
-import { useCallback, useMemo } from 'react'
 import { useNavigate } from 'react-router-dom'
 
 import { ROUTES } from '@/routes/routes'
@@ -14,14 +13,14 @@ export function useCartPage() {
   const clearCart = useCart((s) => s.clearCart)
   const total = useCart(selectCartTotalPrice)
 
-  const items = useMemo(() => Object.values(itemsRecord), [itemsRecord])
+  const items = Object.values(itemsRecord)
   const hasItems = items.length > 0
 
-  const handleCheckout = useCallback(() => {
+  function handleCheckout() {
     if (!hasItems) return
     clearCart()
     navigate(ROUTES.checkout, { replace: false })
-  }, [hasItems, clearCart, navigate])
+  }
 
   return { items, total, hasItems, handleCheckout }
 }

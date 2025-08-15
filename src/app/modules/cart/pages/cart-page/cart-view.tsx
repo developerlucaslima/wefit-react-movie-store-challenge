@@ -1,4 +1,5 @@
 import { ButtonRoot } from '@/app/ui/button/button'
+import type { CartItem } from '@/shared/stores/cart-store/cart-store-types'
 import { formatBRL } from '@/shared/utils/format/currency'
 
 import {
@@ -12,16 +13,8 @@ import {
 } from '../../components/cart-list/cart-list'
 import { CartListItem } from '../../components/cart-list/cart-list-row'
 
-type Item = {
-  id: number
-  title: string
-  image: string
-  price: number
-  quantity: number
-}
-
 type Props = {
-  items: Item[]
+  items: CartItem[]
   total: number
   hasItems: boolean
   onCheckout: () => void

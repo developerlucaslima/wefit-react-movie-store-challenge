@@ -7,6 +7,7 @@ const ICON_SIZE = '13.6px'
 export const StyledButton = styled.button<{
   $variant: ButtonVariant
   $fullWidth: boolean
+  $textCase: 'uppercase' | 'capitalize' | 'none'
 }>`
   appearance: none;
   border: 0;
@@ -23,7 +24,7 @@ export const StyledButton = styled.button<{
 
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
   font-size: ${({ theme }) => theme.typography.fontSize.sm};
-  text-transform: uppercase;
+  text-transform: ${({ $textCase }) => $textCase};
 
   background: ${({ theme }) => theme.colors.buttonBackground};
   color: ${({ theme }) => theme.colors.buttonForeground};

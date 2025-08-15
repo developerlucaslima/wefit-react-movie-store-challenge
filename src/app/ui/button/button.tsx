@@ -10,7 +10,13 @@ import type { ButtonIconCountProps, ButtonProps } from './button-types'
 
 const ButtonRoot = forwardRef<HTMLButtonElement, ButtonProps>(
   (
-    { variant = 'primary', fullWidth = true, type = 'button', ...rest },
+    {
+      variant = 'primary',
+      fullWidth = true,
+      textCase = 'uppercase',
+      type = 'button',
+      ...rest
+    },
     ref,
   ) => (
     <StyledButton
@@ -18,6 +24,7 @@ const ButtonRoot = forwardRef<HTMLButtonElement, ButtonProps>(
       type={type}
       $variant={variant}
       $fullWidth={fullWidth}
+      $textCase={textCase}
       {...rest}
     />
   ),

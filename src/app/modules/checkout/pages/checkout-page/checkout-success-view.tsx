@@ -15,7 +15,9 @@ export const CheckoutSuccessView = ({ onBack }: Props) => (
     <CheckoutCardTitle>Compra realizada com sucesso!</CheckoutCardTitle>
     <CheckoutCardImage src={successImg} alt="Ilustração de compra concluída" />
     <CheckoutCardActions>
-      <ButtonRoot onClick={onBack}>Voltar</ButtonRoot>
+      <ButtonRoot onClick={onBack} textCase="capitalize">
+        voltar
+      </ButtonRoot>
     </CheckoutCardActions>
   </CheckoutCard>
 )

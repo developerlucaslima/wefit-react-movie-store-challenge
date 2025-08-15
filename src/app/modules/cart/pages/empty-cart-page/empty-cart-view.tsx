@@ -19,7 +19,9 @@ export const EmptyCartView = ({ onBack }: Props) => (
     <EmptyCartCardImage src={emptyCart} alt="Ilustração de recarregar página" />
     <EmptyCartCardSeparator />
     <EmptyCartCardActions>
-      <ButtonRoot onClick={onBack}>Voltar</ButtonRoot>
+      <ButtonRoot onClick={onBack} textCase="capitalize">
+        recarregar página
+      </ButtonRoot>
     </EmptyCartCardActions>
   </EmptyCartCard>
 )

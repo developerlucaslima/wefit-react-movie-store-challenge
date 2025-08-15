@@ -11,7 +11,6 @@ export function useCartPage() {
   const navigate = useNavigate()
 
   const itemsRecord = useCart((s) => s.items)
-  const clearCart = useCart((s) => s.clearCart)
   const total = useCart(selectCartTotalPrice)
 
   const items = Object.values(itemsRecord)
@@ -25,7 +24,6 @@ export function useCartPage() {
 
   function handleCheckout() {
     if (emptyCart) return
-    clearCart()
     navigate(ROUTES.checkout, { replace: false })
   }
 

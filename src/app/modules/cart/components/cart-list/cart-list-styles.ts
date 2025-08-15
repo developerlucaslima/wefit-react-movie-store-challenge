@@ -8,10 +8,19 @@ const ACTIONS_W = '30px'
 export const Root = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  padding: 24px;
+  gap: 21px;
+  padding: 16px;
+  margin-left: 16px;
+  margin-right: 16px;
+  margin-bottom: 40px;
   background-color: ${({ theme }) => theme.colors.cardBackground};
+  color: ${({ theme }) => theme.colors.cardForeground};
   border-radius: ${({ theme }) => theme.border['rounded-sm']};
+
+  @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    gap: 24px;
+    padding: 24px;
+  }
 `
 
 export const Header = styled.div`
@@ -64,9 +73,10 @@ export const Separator = styled.div`
 export const Footer = styled.div`
   display: flex;
   flex-direction: column;
-  gap: 24px;
+  gap: 16px;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
+    gap: 24px;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
@@ -78,27 +88,28 @@ export const FooterContent = styled.div`
   align-items: center;
   justify-content: space-between;
   text-transform: uppercase;
-  gap: 24px;
 
   order: 1;
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
     order: 2;
-    min-width: 220px;
   }
 
   .label {
     color: ${({ theme }) => theme.colors.mutedForeground};
     font-size: ${({ theme }) => theme.typography.fontSize.sm};
-    font-weight: ${({ theme }) => theme.typography.fontWeight.semibold};
+    font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+    flex: 0 0 6px;
+    text-align: center;
     text-transform: uppercase;
-    letter-spacing: 0.02em;
   }
 
   .value {
-    font-size: ${({ theme }) => theme.typography.fontSize.lg};
+    font-size: ${({ theme }) => theme.typography.fontSize.xl};
     font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
+    flex: 0 0 130.79px;
     white-space: nowrap;
+    text-align: center;
   }
 `
 

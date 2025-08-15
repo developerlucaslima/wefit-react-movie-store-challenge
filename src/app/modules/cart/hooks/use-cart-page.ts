@@ -24,7 +24,7 @@ export function useCartPage() {
   }, [emptyCart, navigate])
 
   function handleCheckout() {
-    if (!emptyCart) return
+    if (emptyCart) return
     clearCart()
     navigate(ROUTES.checkout, { replace: false })
   }

@@ -77,8 +77,6 @@ export const selectCartTotalItems = (s: CartState) =>
 export const selectCartTotalPrice = (s: CartState) =>
   Object.values(s.items).reduce((sum, it) => sum + it.quantity * it.price, 0)
 
-export const selectAllItems = (s: CartState) => Object.values(s.items)
-
 export const selectItemQuantity = (id: number) => (s: CartState) =>
   s.items[id]?.quantity ?? 0
 

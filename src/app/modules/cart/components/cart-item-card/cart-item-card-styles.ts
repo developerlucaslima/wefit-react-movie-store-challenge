@@ -75,7 +75,7 @@ export const Row = styled.div`
       display: flex;
       flex-direction: row;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 16px;
 
       & > * {
@@ -90,7 +90,6 @@ export const Row = styled.div`
 export const Title = styled.h3`
   margin: 0;
   padding: 0;
-  flex: 100%;
   max-width: 102px;
   min-width: 0;
   word-break: break-word;
@@ -114,7 +113,7 @@ export const UnitPrice = styled.p`
   font-weight: ${({ theme }) => theme.typography.fontWeight.bold};
 
   @media (min-width: ${({ theme }) => theme.breakpoints.md}) {
-    flex: initial;
+    text-align: left;
     max-width: none;
   }
 `

@@ -6,7 +6,7 @@ const ICON_HEIGHT = '18px'
 export const Root = styled.article`
   display: flex;
   gap: 16px;
-  align-items: flex-start;
+  align-items: center;
 
   background: ${({ theme }) => theme.colors.cardBackground};
   color: ${({ theme }) => theme.colors.cardForeground};
@@ -29,7 +29,7 @@ export const Content = styled.div`
   flex: 1;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   min-width: 0;
   gap: 16px;
   margin-top: 3px;
